@@ -1,0 +1,233 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "iconik API",
+    "version": "1.0",
+    "description": "The iconik hybrid cloud media asset management (MAM) API, organized as versioned REST microservices under https://app.iconik.io/API/{service}/v1/. Covers Assets, Collections, Metadata, Search, Files, and Jobs. Authenticated with App-ID and Auth-Token headers."
+  },
+  "items": [
+    {
+      "info": { "name": "Assets", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List assets", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.iconik.io/API/assets/v1/assets/" },
+          "docs": "Lists assets in the account, paginated."
+        },
+        {
+          "info": { "name": "Create an asset", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.iconik.io/API/assets/v1/assets/",
+            "body": { "type": "json", "data": "{\n  \"title\": \"My Asset\",\n  \"type\": \"ASSET\"\n}" }
+          },
+          "docs": "Creates a new asset container."
+        },
+        {
+          "info": { "name": "Get an asset", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/assets/v1/assets/:asset_id/",
+            "params": [
+              { "name": "asset_id", "value": "", "type": "path", "description": "The unique ID of the asset." }
+            ]
+          },
+          "docs": "Retrieves a single asset by ID."
+        },
+        {
+          "info": { "name": "Update an asset", "type": "http" },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.iconik.io/API/assets/v1/assets/:asset_id/",
+            "params": [
+              { "name": "asset_id", "value": "", "type": "path", "description": "The unique ID of the asset." }
+            ],
+            "body": { "type": "json", "data": "{\n  \"title\": \"Updated title\"\n}" }
+          },
+          "docs": "Partially updates an asset."
+        },
+        {
+          "info": { "name": "Delete an asset", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.iconik.io/API/assets/v1/assets/:asset_id/",
+            "params": [
+              { "name": "asset_id", "value": "", "type": "path", "description": "The unique ID of the asset." }
+            ]
+          },
+          "docs": "Deletes an asset (moves it to the delete queue)."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Collections", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List collections", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.iconik.io/API/assets/v1/collections/" },
+          "docs": "Lists collections in the account, paginated."
+        },
+        {
+          "info": { "name": "Create a collection", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.iconik.io/API/assets/v1/collections/",
+            "body": { "type": "json", "data": "{\n  \"title\": \"My Collection\"\n}" }
+          },
+          "docs": "Creates a new collection."
+        },
+        {
+          "info": { "name": "Get a collection", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/assets/v1/collections/:collection_id/",
+            "params": [
+              { "name": "collection_id", "value": "", "type": "path", "description": "The unique ID of the collection." }
+            ]
+          },
+          "docs": "Retrieves a single collection by ID."
+        },
+        {
+          "info": { "name": "List collection contents", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/assets/v1/collections/:collection_id/contents/",
+            "params": [
+              { "name": "collection_id", "value": "", "type": "path", "description": "The unique ID of the collection." }
+            ]
+          },
+          "docs": "Lists the assets and sub-collections contained within a collection."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Metadata", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List metadata fields", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.iconik.io/API/metadata/v1/fields/" },
+          "docs": "Lists all custom metadata fields defined in the account."
+        },
+        {
+          "info": { "name": "List metadata views", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.iconik.io/API/metadata/v1/views/" },
+          "docs": "Lists all metadata views."
+        },
+        {
+          "info": { "name": "Get asset metadata for a view", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/metadata/v1/assets/:asset_id/views/:view_id/",
+            "params": [
+              { "name": "asset_id", "value": "", "type": "path", "description": "The unique ID of the asset." },
+              { "name": "view_id", "value": "", "type": "path", "description": "The unique ID of the metadata view." }
+            ]
+          },
+          "docs": "Reads the metadata values on an asset for the fields in a given view."
+        },
+        {
+          "info": { "name": "Set asset metadata for a view", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.iconik.io/API/metadata/v1/assets/:asset_id/views/:view_id/",
+            "params": [
+              { "name": "asset_id", "value": "", "type": "path", "description": "The unique ID of the asset." },
+              { "name": "view_id", "value": "", "type": "path", "description": "The unique ID of the metadata view." }
+            ],
+            "body": { "type": "json", "data": "{\n  \"metadata_values\": {}\n}" }
+          },
+          "docs": "Writes metadata values on an asset for the fields in a given view."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Search", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Search", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.iconik.io/API/search/v1/search/",
+            "body": { "type": "json", "data": "{\n  \"query\": \"interview\",\n  \"doc_types\": [\"assets\"],\n  \"sort\": [{\"name\": \"date_created\", \"order\": \"desc\"}]\n}" }
+          },
+          "docs": "Runs a search across assets and collections with full-text, metadata, and facet filters."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Files", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List files for an asset", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/files/v1/assets/:asset_id/files/",
+            "params": [
+              { "name": "asset_id", "value": "", "type": "path", "description": "The unique ID of the asset." }
+            ]
+          },
+          "docs": "Lists the files associated with an asset."
+        },
+        {
+          "info": { "name": "List proxies for an asset", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/files/v1/assets/:asset_id/proxies/",
+            "params": [
+              { "name": "asset_id", "value": "", "type": "path", "description": "The unique ID of the asset." }
+            ]
+          },
+          "docs": "Lists the low-resolution proxy previews associated with an asset."
+        },
+        {
+          "info": { "name": "List storages", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.iconik.io/API/files/v1/storages/" },
+          "docs": "Lists the connected storages (cloud or on-premise) available in the account."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Jobs", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List jobs", "type": "http" },
+          "http": { "method": "GET", "url": "https://app.iconik.io/API/jobs/v1/jobs/" },
+          "docs": "Lists jobs, paginated."
+        },
+        {
+          "info": { "name": "Create a job", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://app.iconik.io/API/jobs/v1/jobs/",
+            "body": { "type": "json", "data": "{\n  \"title\": \"Transfer job\",\n  \"type\": \"TRANSFER\",\n  \"status\": \"STARTED\"\n}" }
+          },
+          "docs": "Creates a new job. Requires at least title, type, and status."
+        },
+        {
+          "info": { "name": "Get a job", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/jobs/v1/jobs/:job_id/",
+            "params": [
+              { "name": "job_id", "value": "", "type": "path", "description": "The unique ID of the job." }
+            ]
+          },
+          "docs": "Retrieves a single job by ID, including its status and progress."
+        },
+        {
+          "info": { "name": "Update a job", "type": "http" },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.iconik.io/API/jobs/v1/jobs/:job_id/",
+            "params": [
+              { "name": "job_id", "value": "", "type": "path", "description": "The unique ID of the job." }
+            ],
+            "body": { "type": "json", "data": "{\n  \"status\": \"FINISHED\"\n}" }
+          },
+          "docs": "Updates a job, for example to report progress or change status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

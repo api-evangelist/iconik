@@ -1,0 +1,106 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: iconik
+providerId: iconik
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Media Asset Management
+- MAM
+- Video
+- Cloud Storage
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of iconik spend. iconik is billed on a usage basis: a per-user
+  monthly charge for the users who actually log in (by role - collaborator,
+  browse, standard, power) plus consumables drawn down from credits as they are
+  used, covering storage, egress, AI, and services. Because iconik connects to
+  your own AWS, Azure, Google Cloud, or on-premise storage rather than forcing a
+  proprietary storage migration, a meaningful share of media storage and egress
+  cost can sit on your own cloud bill in addition to iconik's invoice - so cost
+  visibility spans both iconik and your underlying storage provider. Enterprise
+  agreements offer a fixed annual cost option for budget certainty.
+notes: >-
+  Per-unit consumable rates and Professional/Enterprise pricing are not publicly
+  disclosed; verify on the iconik pricing page during reconciliation. Track both
+  the iconik invoice (users + credits) and the storage/egress charges on your
+  connected cloud accounts.
+sources:
+- https://www.iconik.io/pricing
+- https://www.iconik.io/
+- https://app.iconik.io/docs/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: iconik
+serviceCategory: Media and Content Management
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: iconik
+  ServiceCategory: Media and Content Management
+  ProviderName: iconik
+  PublisherName: iconik
+  InvoiceIssuerName: iconik
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: active_users
+  description: Users who log in during the month, billed by role (collaborator, browse, standard, power).
+  unit: users
+  aggregation: max
+  dimensions:
+  - account
+  - role
+- name: storage
+  description: Managed storage consumed for proxies, transfers, and other media, drawn from credits.
+  unit: bytes
+  aggregation: sum
+  dimensions:
+  - account
+  - storage
+- name: egress
+  description: Data egress / transfer out, drawn from credits.
+  unit: bytes
+  aggregation: sum
+  dimensions:
+  - account
+- name: ai_credits
+  description: AI and machine-learning processing (e.g. transcription, face recognition), drawn from credits.
+  unit: credits
+  aggregation: sum
+  dimensions:
+  - account
+- name: services
+  description: Transcode, automation runs, and other services consumed as credits.
+  unit: credits
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track active users by role plus consumable credit draw-down (storage, egress, AI, services); also monitor storage and egress cost on the connected cloud accounts iconik uses.
+- name: Allocation
+  description: Map users and collections to teams or productions so both iconik charges and underlying storage cost tie back to cost centers.
+- name: Optimization
+  description: Right-size user roles to actual need, prune unused assets and proxies, use bring-your-own storage tiers, and scale down during quiet periods since you pay only for users who log in.
+- name: Accountability
+  description: Assign owners per workspace/collection and review monthly active-user counts and credit consumption against plan allowances or the fixed annual cost option.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

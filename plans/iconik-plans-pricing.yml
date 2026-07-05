@@ -1,0 +1,148 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: iconik
+providerId: iconik
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Media Asset Management
+- MAM
+- Video
+- Cloud Storage
+- Plans
+description: >-
+  iconik is a commercial SaaS media asset management platform with usage-based
+  pricing. You pay for the users who actually log in each month plus consumables
+  (storage, egress, AI, and services) drawn down from credits as you go - with
+  no forced migration into proprietary storage, since iconik connects to your
+  existing AWS, Azure, Google Cloud, or on-premise storage. The published
+  Starter tier charges per user by role; Professional and Enterprise tiers are
+  custom-quoted and add included monthly AI credits, automation runs, and
+  included storage for proxies, transfers, and egress. The API itself is not a
+  separately metered product - API access is included with your account and
+  governed by your plan's user and consumable allowances.
+notes: >-
+  Per-user prices below are drawn from iconik's published Starter tier at the
+  review date and can change - verify current pricing at
+  https://www.iconik.io/pricing. Professional and Enterprise amounts are not
+  publicly disclosed.
+sources:
+- https://www.iconik.io/pricing
+- https://www.iconik.io/
+- https://app.iconik.io/docs/
+plans:
+- id: iconik-starter
+  name: Starter
+  type: usage
+  description: >-
+    Usage-based, no-commitment tier. Billed per user who logs in each month by
+    role, with storage, egress, AI, and services consumed as pay-per-use
+    credits.
+  entries:
+  - label: Collaborator User
+    name: collaborator_user
+    type: usage
+    metric: users
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0 per collaborator per month
+    userMultiplied: true
+  - label: Browse User
+    name: browse_user
+    type: usage
+    metric: users
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $9 per browse user per month
+    userMultiplied: true
+  - label: Standard User
+    name: standard_user
+    type: usage
+    metric: users
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $65 per standard user per month
+    userMultiplied: true
+  - label: Power User
+    name: power_user
+    type: usage
+    metric: users
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $120 per power user per month
+    userMultiplied: true
+  - label: Consumables (Storage / Egress / AI / Services)
+    name: consumables
+    type: usage
+    metric: credits
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: pay-per-use credits drawn down as consumed
+    userMultiplied: false
+  elements:
+  - name: Full REST API Access
+  - name: Bring Your Own Storage
+  - name: Pay Only For Users Who Log In
+  - name: HTTP Webhooks
+- id: iconik-professional
+  name: Professional
+  type: usage
+  description: >-
+    Custom-quoted tier for growing media operations. Adds included monthly AI
+    credits and automation runs plus included storage for proxies, transfers,
+    and egress on top of per-user pricing.
+  entries:
+  - label: Professional Agreement
+    name: professional
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: custom pricing (contact iconik)
+    userMultiplied: false
+  elements:
+  - name: Included Monthly AI Credits
+  - name: Included Automation Runs
+  - name: Included Storage For Proxies Transfers And Egress
+  - name: Full REST API Access
+- id: iconik-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom-quoted tier for large-scale deployments, with a fixed annual cost
+    option for budget certainty, tailored packages, add-ons (Edge Transcoder,
+    ISG Pro, DRM, Forensic Watermarking, Bring Your Own Proxy Storage), and
+    negotiated SLAs and support.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: custom pricing (contact iconik)
+    userMultiplied: false
+  elements:
+  - name: Fixed Annual Cost Option
+  - name: Tailored Packages And Add-Ons
+  - name: SLAs And Support
+  - name: Full REST API Access
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

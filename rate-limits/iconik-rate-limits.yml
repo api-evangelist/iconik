@@ -1,0 +1,58 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: iconik
+providerId: iconik
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Media Asset Management
+- MAM
+- Rate Limiting
+- Quotas
+description: >-
+  iconik applies request-rate limiting to its REST API. Per its API
+  documentation, clients are limited to roughly 50 requests per second
+  sustained, or 1000 requests over any 20-second window, per set of application
+  credentials. Responses carry a RateLimit-Remaining header so callers can track
+  their remaining budget, and exceeding the limit returns HTTP 429. Consumable
+  resources (storage, egress, AI, and services) are governed separately by your
+  plan's credit allowances rather than by request-rate limits.
+notes: >-
+  The numeric limits below reflect iconik's published API guidance at the review
+  date and can change - confirm against https://app.iconik.io/docs/ and your
+  account's plan. Heavy list traversal should honor pagination and RateLimit
+  headers.
+sources:
+- https://app.iconik.io/docs/api.html
+- https://app.iconik.io/docs/reference.html
+- https://www.iconik.io/pricing
+responseCodes:
+  throttled: 429
+limits:
+- name: Sustained Request Rate
+  scope: application
+  metric: requests
+  limit: ~50 requests per second sustained
+  notes: Per set of App-ID / Auth-Token application credentials.
+- name: Burst Window
+  scope: application
+  metric: requests
+  limit: ~1000 requests per any 20-second window
+  notes: Short-window burst allowance measured across a rolling 20 seconds.
+- name: Consumable Credits
+  scope: account
+  metric: credits
+  limit: per plan
+  notes: Storage, egress, AI, and services are metered by plan credit allowances, not by request rate.
+policies:
+- name: Rate Limit Headers
+  description: Responses include a RateLimit-Remaining header indicating how many requests remain in the current window.
+- name: Backoff Strategy
+  description: On a 429 response, back off with exponential delay and jitter before retrying.
+- name: Pagination
+  description: Use page and per_page parameters and follow returned page metadata rather than issuing large unbounded list requests.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
