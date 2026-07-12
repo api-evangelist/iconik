@@ -1,0 +1,12 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://www.iconik.io/security
+url: https://www.iconik.io/security
+certifications:
+- SOC 2
+evidence:
+- source: https://www.iconik.io/security
+  keywords:
+  - soc 2
+  - trust center

@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/iconik-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: appId
+  type: apiKey
+  in: header
+  parameter: App-ID
+  description: The iconik application ID generated in the web UI.
+  sources:
+  - openapi/iconik-openapi.yml
+- name: authToken
+  type: apiKey
+  in: header
+  parameter: Auth-Token
+  description: The iconik auth token paired with the application ID.
+  sources:
+  - openapi/iconik-openapi.yml
