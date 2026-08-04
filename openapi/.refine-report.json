@@ -1,0 +1,24 @@
+{
+  "provider": "iconik",
+  "sources": [
+    "iconik-assets-api-openapi.yml",
+    "iconik-collections-api-openapi.yml",
+    "iconik-files-api-openapi.yml",
+    "iconik-jobs-api-openapi.yml",
+    "iconik-metadata-api-openapi.yml",
+    "iconik-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "iconik-assets-api-openapi.yml",
+    "iconik-collections-api-openapi.yml",
+    "iconik-files-api-openapi.yml",
+    "iconik-jobs-api-openapi.yml",
+    "iconik-metadata-api-openapi.yml",
+    "iconik-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
