@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "iconik Assets Jobs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "App-ID",
+      "value": "{{App-ID}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/jobs/v1/jobs/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of results to return."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "The number of results per page."
+              }
+            ]
+          },
+          "docs": "Lists jobs, paginated."
+        },
+        {
+          "info": {
+            "name": "Create a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.iconik.io/API/jobs/v1/jobs/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new job. Requires at least title, type, and status."
+        },
+        {
+          "info": {
+            "name": "Get a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/jobs/v1/jobs/:job_id/",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a single job by ID, including its status and progress."
+        },
+        {
+          "info": {
+            "name": "Update a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.iconik.io/API/jobs/v1/jobs/:job_id/",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a job, for example to report progress or change status."
+        },
+        {
+          "info": {
+            "name": "Delete a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.iconik.io/API/jobs/v1/jobs/:job_id/",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a job."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

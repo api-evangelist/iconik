@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "iconik Assets API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "App-ID",
+      "value": "{{App-ID}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/assets/v1/assets/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number of results to return."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "The number of results per page."
+              }
+            ]
+          },
+          "docs": "Lists assets in the account, paginated."
+        },
+        {
+          "info": {
+            "name": "Create an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.iconik.io/API/assets/v1/assets/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new asset container."
+        },
+        {
+          "info": {
+            "name": "Get an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/assets/v1/assets/:asset_id/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              },
+              {
+                "name": "include_collections",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_users",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a single asset by ID. Supports include_collections and include_users query flags."
+        },
+        {
+          "info": {
+            "name": "Replace an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.iconik.io/API/assets/v1/assets/:asset_id/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces an asset. In iconik, PUT and PATCH have the same update-or-replace behavior."
+        },
+        {
+          "info": {
+            "name": "Update an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.iconik.io/API/assets/v1/assets/:asset_id/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates an asset."
+        },
+        {
+          "info": {
+            "name": "Delete an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.iconik.io/API/assets/v1/assets/:asset_id/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              }
+            ]
+          },
+          "docs": "Deletes an asset (moves it to the delete queue)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

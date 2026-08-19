@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "iconik Assets Metadata API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "App-ID",
+      "value": "{{App-ID}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List metadata fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/metadata/v1/fields/"
+          },
+          "docs": "Lists all custom metadata fields defined in the account."
+        },
+        {
+          "info": {
+            "name": "Create a metadata field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.iconik.io/API/metadata/v1/fields/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new custom metadata field."
+        },
+        {
+          "info": {
+            "name": "List metadata views",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/metadata/v1/views/"
+          },
+          "docs": "Lists all metadata views, which group fields into a form used to read and write values."
+        },
+        {
+          "info": {
+            "name": "Get asset metadata for a view",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/metadata/v1/assets/:asset_id/views/:view_id/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              },
+              {
+                "name": "view_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reads the metadata values on an asset for the fields in a given view."
+        },
+        {
+          "info": {
+            "name": "Set asset metadata for a view",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.iconik.io/API/metadata/v1/assets/:asset_id/views/:view_id/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              },
+              {
+                "name": "view_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Writes metadata values on an asset for the fields in a given view."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

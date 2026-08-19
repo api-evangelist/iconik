@@ -1,0 +1,466 @@
+{
+  "item": [
+    {
+      "id": "773d0019-eea2-49a8-ae14-9a364b2dbed2",
+      "name": "Files",
+      "description": {
+        "content": "Files, proxies, formats, and storages attached to assets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "097ebdad-1deb-4dc4-af70-170155519620",
+          "name": "List files for an asset",
+          "request": {
+            "name": "List files for an asset",
+            "description": {
+              "content": "Lists the files associated with an asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                "v1",
+                "assets",
+                ":asset_id",
+                "files",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asset_id",
+                  "description": "(Required) The unique ID of the asset."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6801f230-d5fd-4c51-a283-ddcc348d58a0",
+              "name": "A list of files.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    "v1",
+                    "assets",
+                    ":asset_id",
+                    "files",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) The unique ID of the asset."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"directory_path\": \"string\",\n      \"size\": 3630,\n      \"storage_id\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"directory_path\": \"string\",\n      \"size\": 9158,\n      \"storage_id\": \"string\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35c9b998-751f-471a-a6de-6e14542f703f",
+          "name": "Associate a file with an asset",
+          "request": {
+            "name": "Associate a file with an asset",
+            "description": {
+              "content": "Associates a new file record with an asset on a storage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                "v1",
+                "assets",
+                ":asset_id",
+                "files",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asset_id",
+                  "description": "(Required) The unique ID of the asset."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"directory_path\": \"<string>\",\n  \"size\": \"<long>\",\n  \"storage_id\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c0c4e1a-3bb6-48ad-8143-ee0882abb7df",
+              "name": "The created file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    "v1",
+                    "assets",
+                    ":asset_id",
+                    "files",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) The unique ID of the asset."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"directory_path\": \"<string>\",\n  \"size\": \"<long>\",\n  \"storage_id\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"directory_path\": \"<string>\",\n  \"size\": \"<long>\",\n  \"storage_id\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ed6e276-21c6-4b8c-8dd3-2096c25bbcba",
+          "name": "List proxies for an asset",
+          "request": {
+            "name": "List proxies for an asset",
+            "description": {
+              "content": "Lists the low-resolution proxy previews associated with an asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                "v1",
+                "assets",
+                ":asset_id",
+                "proxies",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asset_id",
+                  "description": "(Required) The unique ID of the asset."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "281664fd-caca-4c2b-bff5-450efe6b7e5e",
+              "name": "A list of proxies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    "v1",
+                    "assets",
+                    ":asset_id",
+                    "proxies",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) The unique ID of the asset."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3909cfd-ff20-47a3-928c-db82e26a60e2",
+          "name": "List storages",
+          "request": {
+            "name": "List storages",
+            "description": {
+              "content": "Lists the connected storages (cloud or on-premise) available in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "files",
+                "v1",
+                "storages",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b7129a7-673d-4b56-a627-8c4e2f4c8e70",
+              "name": "A list of storages.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "files",
+                    "v1",
+                    "storages",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"method\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"method\": \"string\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.iconik.io/API",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "App-ID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3ef5d030-5703-4bfd-81fd-1a93f3ce3d03",
+    "name": "iconik Assets Files API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "iconik is a hybrid cloud media asset management (MAM) platform. Its public API is API-first and organized as versioned REST microservices under https://app.iconik.io/API/{service}/v1/. This document models the core logical APIs an integrator uses most: Assets and Collections (assets microservice), Metadata, Search, Files, and Jobs. Every request is authenticated with two headers - App-ID (application identifier) and Auth-Token (auth token) - generated by an administrator in the iconik web UI under Settings / Application Tokens. Requests and responses are JSON. List responses are paginated and return page metadata (page, pages, total). Endpoints are grounded in iconik's published API reference; request and response schemas are honestly modeled and simplified where the interactive reference is the authoritative source of the full object shapes.\n\nContact Support:\n Name: iconik",
+      "type": "text/plain"
+    }
+  }
+}

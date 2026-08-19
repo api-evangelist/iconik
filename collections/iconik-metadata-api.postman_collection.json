@@ -1,0 +1,583 @@
+{
+  "item": [
+    {
+      "id": "e98dc090-3528-41b0-a4d1-1a5bf73661cf",
+      "name": "Metadata",
+      "description": {
+        "content": "Custom metadata fields, views, and values.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c4d6b74c-75e2-4ef5-a007-0df331bafa5c",
+          "name": "List metadata fields",
+          "request": {
+            "name": "List metadata fields",
+            "description": {
+              "content": "Lists all custom metadata fields defined in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "v1",
+                "fields",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1f4edeb-efcf-4eeb-af16-38cc4ce537cd",
+              "name": "A list of metadata fields.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "v1",
+                    "fields",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"name\": \"string\",\n      \"label\": \"string\",\n      \"field_type\": \"string\",\n      \"required\": true\n    },\n    {\n      \"name\": \"string\",\n      \"label\": \"string\",\n      \"field_type\": \"string\",\n      \"required\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dbaf34c-1efb-4ed7-b1dd-63a20d8ed479",
+          "name": "Create a metadata field",
+          "request": {
+            "name": "Create a metadata field",
+            "description": {
+              "content": "Creates a new custom metadata field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "v1",
+                "fields",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"label\": \"<string>\",\n  \"field_type\": \"<string>\",\n  \"required\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d79f44b0-f8ad-4b5b-b2cb-c690b53584ec",
+              "name": "The created metadata field.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "v1",
+                    "fields",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"label\": \"<string>\",\n  \"field_type\": \"<string>\",\n  \"required\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"label\": \"<string>\",\n  \"field_type\": \"<string>\",\n  \"required\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c166947c-422e-4c09-8b5d-dca7223004fe",
+          "name": "List metadata views",
+          "request": {
+            "name": "List metadata views",
+            "description": {
+              "content": "Lists all metadata views, which group fields into a form used to read and write values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "v1",
+                "views",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "405d586c-6158-402e-91ff-5d70192e4f2a",
+              "name": "A list of metadata views.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "v1",
+                    "views",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "942e545b-dd11-4d01-a2c8-ba3814431bcf",
+          "name": "Get asset metadata for a view",
+          "request": {
+            "name": "Get asset metadata for a view",
+            "description": {
+              "content": "Reads the metadata values on an asset for the fields in a given view.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "v1",
+                "assets",
+                ":asset_id",
+                "views",
+                ":view_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asset_id",
+                  "description": "(Required) The unique ID of the asset."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "view_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81405fb4-533c-4316-b9da-8bbd9b351828",
+              "name": "The metadata values for the asset in the view.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "v1",
+                    "assets",
+                    ":asset_id",
+                    "views",
+                    ":view_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) The unique ID of the asset."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metadata_values\": {\n    \"key_0\": 6183.413940378372,\n    \"key_1\": 4605\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bb7fbf7-9d38-444e-b915-df61abfa900a",
+          "name": "Set asset metadata for a view",
+          "request": {
+            "name": "Set asset metadata for a view",
+            "description": {
+              "content": "Writes metadata values on an asset for the fields in a given view.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "v1",
+                "assets",
+                ":asset_id",
+                "views",
+                ":view_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asset_id",
+                  "description": "(Required) The unique ID of the asset."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "view_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata_values\": {\n    \"key_0\": 9828\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dff485ba-1239-45b0-aec7-9733cd947765",
+              "name": "The updated metadata values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "v1",
+                    "assets",
+                    ":asset_id",
+                    "views",
+                    ":view_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) The unique ID of the asset."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata_values\": {\n    \"key_0\": 6183.413940378372,\n    \"key_1\": 4605\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metadata_values\": {\n    \"key_0\": 6183.413940378372,\n    \"key_1\": 4605\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.iconik.io/API",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "App-ID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "709987bb-7f8e-4695-a6f4-7f8a6152ab17",
+    "name": "iconik Assets Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "iconik is a hybrid cloud media asset management (MAM) platform. Its public API is API-first and organized as versioned REST microservices under https://app.iconik.io/API/{service}/v1/. This document models the core logical APIs an integrator uses most: Assets and Collections (assets microservice), Metadata, Search, Files, and Jobs. Every request is authenticated with two headers - App-ID (application identifier) and Auth-Token (auth token) - generated by an administrator in the iconik web UI under Settings / Application Tokens. Requests and responses are JSON. List responses are paginated and return page metadata (page, pages, total). Endpoints are grounded in iconik's published API reference; request and response schemas are honestly modeled and simplified where the interactive reference is the authoritative source of the full object shapes.\n\nContact Support:\n Name: iconik",
+      "type": "text/plain"
+    }
+  }
+}

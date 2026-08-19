@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "27433a05-1f8a-4a64-9df0-515e4e0d1705",
+      "name": "Search",
+      "description": {
+        "content": "Full-text and metadata search across the catalog.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "308031f3-90d7-4fd3-a6e9-e9c7d08f991d",
+          "name": "Search",
+          "request": {
+            "name": "Search",
+            "description": {
+              "content": "Runs a search across assets and collections using full-text, metadata, and facet filters, with sorting and pagination supplied in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "v1",
+                "search",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "The number of results per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"doc_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filter\": \"<object>\",\n  \"sort\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85841dd9-a135-4251-8746-fbce68e36634",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "v1",
+                    "search",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "App-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"doc_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filter\": \"<object>\",\n  \"sort\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pages\": 3026,\n  \"total\": 6656\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.iconik.io/API",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "App-ID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "05dbea27-c040-483f-9705-f9015de60ea8",
+    "name": "iconik Assets Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "iconik is a hybrid cloud media asset management (MAM) platform. Its public API is API-first and organized as versioned REST microservices under https://app.iconik.io/API/{service}/v1/. This document models the core logical APIs an integrator uses most: Assets and Collections (assets microservice), Metadata, Search, Files, and Jobs. Every request is authenticated with two headers - App-ID (application identifier) and Auth-Token (auth token) - generated by an administrator in the iconik web UI under Settings / Application Tokens. Requests and responses are JSON. List responses are paginated and return page metadata (page, pages, total). Endpoints are grounded in iconik's published API reference; request and response schemas are honestly modeled and simplified where the interactive reference is the authoritative source of the full object shapes.\n\nContact Support:\n Name: iconik",
+      "type": "text/plain"
+    }
+  }
+}

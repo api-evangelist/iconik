@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "iconik Assets Files API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "App-ID",
+      "value": "{{App-ID}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Files",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List files for an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/files/v1/assets/:asset_id/files/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              }
+            ]
+          },
+          "docs": "Lists the files associated with an asset."
+        },
+        {
+          "info": {
+            "name": "Associate a file with an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.iconik.io/API/files/v1/assets/:asset_id/files/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associates a new file record with an asset on a storage."
+        },
+        {
+          "info": {
+            "name": "List proxies for an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/files/v1/assets/:asset_id/proxies/",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the asset."
+              }
+            ]
+          },
+          "docs": "Lists the low-resolution proxy previews associated with an asset."
+        },
+        {
+          "info": {
+            "name": "List storages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.iconik.io/API/files/v1/storages/"
+          },
+          "docs": "Lists the connected storages (cloud or on-premise) available in the account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
