@@ -65,6 +65,8 @@ apis:
   humanURL: https://app.iconik.io/docs/reference.html
   baseURL: https://app.iconik.io/API/assets/v1
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -83,6 +85,8 @@ apis:
   humanURL: https://app.iconik.io/docs/reference.html
   baseURL: https://app.iconik.io/API/assets/v1
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -101,6 +105,8 @@ apis:
   humanURL: https://app.iconik.io/docs/reference.html
   baseURL: https://app.iconik.io/API/assets/v1
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
