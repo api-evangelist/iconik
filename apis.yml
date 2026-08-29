@@ -168,6 +168,9 @@ apis:
   - type: OpenCollection
     url: collections/iconik.opencollection.json
 common:
+- type: CapabilityMap
+  url: capabilities/iconik-capability-edges.yml
+  name: iconik Business Capability Map
 - type: AgenticAccess
   url: agentic-access/iconik-agentic-access.yml
 - type: TrustCenter

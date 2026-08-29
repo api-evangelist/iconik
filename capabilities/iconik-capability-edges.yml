@@ -1,0 +1,54 @@
+slug: iconik
+provider: iconik
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Assets
+  spec_file: iconik-assets-api-openapi.yml
+  capability_id: BC-3710
+  capability_id_l1: BC-3710
+  capability_name: Media Asset Management
+  confidence: 0.88
+  evidence: '"iconik is a hybrid cloud media asset management (MAM) platform"; operations "List assets",
+    "Create an asset", "Update an asset", schema Asset/AssetList'
+  reason: Core CRUD over media assets in a MAM platform — squarely Media Asset Management. Evidence does
+    not single out one sub-capability (ingest vs cataloguing vs storage), so L1 only.
+- tag: Metadata
+  spec_file: iconik-metadata-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.85
+  evidence: '"List metadata fields", "Create a metadata field", "Get asset metadata for a view", "Set
+    asset metadata for a view", schema MetadataField'
+  reason: Authoring and curation of descriptive metadata on media assets in a MAM — Metadata Cataloguing.
+- tag: Collections
+  spec_file: iconik-collections-api-openapi.yml
+  capability_id: BC-3710
+  capability_id_l1: BC-3710
+  capability_name: Media Asset Management
+  confidence: 0.72
+  evidence: '"List collections", "Create a collection", "List collection contents" within the assets microservice
+    of a "media asset management (MAM) platform"'
+  reason: Organising media assets into collections is asset-platform organisation, i.e. Media Asset Management.
+    Not on-demand consumer catalogue curation, so L1 only and moderate confidence.
+- tag: Files
+  spec_file: iconik-files-api-openapi.yml
+  capability_id: BC-3710.30
+  capability_id_l1: BC-3710
+  capability_name: Asset Storage & Tiering
+  confidence: 0.7
+  evidence: '"List files for an asset", "List proxies for an asset", "List storages", schemas Storage,
+    File'
+  reason: File/proxy/storage surface of the MAM maps to asset storage across storage backends; proxies
+    hint at renditions too, so sub-capability choice carries some uncertainty.
