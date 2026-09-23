@@ -1,0 +1,27 @@
+# Front Door AI Index — iconik — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: iconik
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.iconik.io
+  final_host: www.iconik.io
+  ownership: own
+  owner: iconik
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 6
+  host_score: 6
+  density: 5.72
+  words: 1049
+  tiers:
+    agentic: 0
+    core: 6
+    model: 0
+  ambiguous: 4
+  top_terms:
+    AI: 6
+    intelligence: 3
+    automation: 1

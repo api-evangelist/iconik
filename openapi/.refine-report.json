@@ -1,12 +1,7 @@
 {
   "provider": "iconik",
   "sources": [
-    "iconik-assets-api-openapi.yml",
-    "iconik-collections-api-openapi.yml",
-    "iconik-files-api-openapi.yml",
-    "iconik-jobs-api-openapi.yml",
-    "iconik-metadata-api-openapi.yml",
-    "iconik-search-api-openapi.yml"
+    "_original/iconik-openapi.yml"
   ],
   "outputs": [
     "iconik-assets-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "iconik-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "iconik-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "iconik-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "iconik-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "iconik-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "iconik-metadata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "iconik-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
