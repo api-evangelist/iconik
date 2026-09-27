@@ -136,6 +136,28 @@ paths:
           description: The asset was deleted.
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+    AssetList:
+      type: object
+      properties:
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+        page:
+          type: integer
+        pages:
+          type: integer
+        total:
+          type: integer
     Asset:
       type: object
       properties:
@@ -154,19 +176,6 @@ components:
         date_modified:
           type: string
           format: date-time
-    AssetList:
-      type: object
-      properties:
-        objects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Asset'
-        page:
-          type: integer
-        pages:
-          type: integer
-        total:
-          type: integer
     AssetCreate:
       type: object
       required:
@@ -176,39 +185,6 @@ components:
           type: string
         type:
           type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
-  parameters:
-    AssetId:
-      name: asset_id
-      in: path
-      required: true
-      description: The unique ID of the asset.
-      schema:
-        type: string
-    Page:
-      name: page
-      in: query
-      required: false
-      description: The page number of results to return.
-      schema:
-        type: integer
-        default: 1
-    PerPage:
-      name: per_page
-      in: query
-      required: false
-      description: The number of results per page.
-      schema:
-        type: integer
-        default: 10
   responses:
     NotFound:
       description: The requested object was not found.
@@ -222,6 +198,30 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    AssetId:
+      name: asset_id
+      in: path
+      required: true
+      description: The unique ID of the asset.
+      schema:
+        type: string
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      description: The number of results per page.
+      schema:
+        type: integer
+        default: 10
+    Page:
+      name: page
+      in: query
+      required: false
+      description: The page number of results to return.
+      schema:
+        type: integer
+        default: 1
   securitySchemes:
     appId:
       type: apiKey

@@ -99,14 +99,6 @@ paths:
                     items:
                       $ref: '#/components/schemas/Storage'
 components:
-  parameters:
-    AssetId:
-      name: asset_id
-      in: path
-      required: true
-      description: The unique ID of the asset.
-      schema:
-        type: string
   schemas:
     Storage:
       type: object
@@ -136,6 +128,14 @@ components:
           type: string
         status:
           type: string
+  parameters:
+    AssetId:
+      name: asset_id
+      in: path
+      required: true
+      description: The unique ID of the asset.
+      schema:
+        type: string
   securitySchemes:
     appId:
       type: apiKey

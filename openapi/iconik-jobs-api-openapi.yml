@@ -111,19 +111,15 @@ paths:
           description: The job was deleted.
 components:
   schemas:
-    JobCreate:
+    Error:
       type: object
-      required:
-      - title
-      - type
-      - status
       properties:
-        title:
+        error:
           type: string
-        type:
-          type: string
-        status:
-          type: string
+        errors:
+          type: array
+          items:
+            type: string
     Job:
       type: object
       properties:
@@ -143,24 +139,27 @@ components:
         date_created:
           type: string
           format: date-time
-    Error:
+    JobCreate:
       type: object
+      required:
+      - title
+      - type
+      - status
       properties:
-        error:
+        title:
           type: string
-        errors:
-          type: array
-          items:
-            type: string
+        type:
+          type: string
+        status:
+          type: string
+  responses:
+    NotFound:
+      description: The requested object was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
-    Page:
-      name: page
-      in: query
-      required: false
-      description: The page number of results to return.
-      schema:
-        type: integer
-        default: 1
     PerPage:
       name: per_page
       in: query
@@ -169,13 +168,14 @@ components:
       schema:
         type: integer
         default: 10
-  responses:
-    NotFound:
-      description: The requested object was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    Page:
+      name: page
+      in: query
+      required: false
+      description: The page number of results to return.
+      schema:
+        type: integer
+        default: 1
   securitySchemes:
     appId:
       type: apiKey
