@@ -51,6 +51,23 @@ paths:
                   total:
                     type: integer
 components:
+  parameters:
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      description: The number of results per page.
+      schema:
+        type: integer
+        default: 10
+    Page:
+      name: page
+      in: query
+      required: false
+      description: The page number of results to return.
+      schema:
+        type: integer
+        default: 1
   schemas:
     SearchRequest:
       type: object
@@ -70,23 +87,6 @@ components:
           type: array
           items:
             type: object
-  parameters:
-    PerPage:
-      name: per_page
-      in: query
-      required: false
-      description: The number of results per page.
-      schema:
-        type: integer
-        default: 10
-    Page:
-      name: page
-      in: query
-      required: false
-      description: The page number of results to return.
-      schema:
-        type: integer
-        default: 1
   securitySchemes:
     appId:
       type: apiKey

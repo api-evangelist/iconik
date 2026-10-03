@@ -136,28 +136,15 @@ paths:
           description: The asset was deleted.
 components:
   schemas:
-    Error:
+    AssetCreate:
       type: object
+      required:
+      - title
       properties:
-        error:
+        title:
           type: string
-        errors:
-          type: array
-          items:
-            type: string
-    AssetList:
-      type: object
-      properties:
-        objects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Asset'
-        page:
-          type: integer
-        pages:
-          type: integer
-        total:
-          type: integer
+        type:
+          type: string
     Asset:
       type: object
       properties:
@@ -176,36 +163,29 @@ components:
         date_modified:
           type: string
           format: date-time
-    AssetCreate:
+    AssetList:
       type: object
-      required:
-      - title
       properties:
-        title:
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+        page:
+          type: integer
+        pages:
+          type: integer
+        total:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
           type: string
-        type:
-          type: string
-  responses:
-    NotFound:
-      description: The requested object was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid App-ID / Auth-Token credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+        errors:
+          type: array
+          items:
+            type: string
   parameters:
-    AssetId:
-      name: asset_id
-      in: path
-      required: true
-      description: The unique ID of the asset.
-      schema:
-        type: string
     PerPage:
       name: per_page
       in: query
@@ -214,6 +194,13 @@ components:
       schema:
         type: integer
         default: 10
+    AssetId:
+      name: asset_id
+      in: path
+      required: true
+      description: The unique ID of the asset.
+      schema:
+        type: string
     Page:
       name: page
       in: query
@@ -222,6 +209,19 @@ components:
       schema:
         type: integer
         default: 1
+  responses:
+    Unauthorized:
+      description: Missing or invalid App-ID / Auth-Token credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested object was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     appId:
       type: apiKey
