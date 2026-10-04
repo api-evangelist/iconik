@@ -99,19 +99,15 @@ paths:
                     items:
                       $ref: '#/components/schemas/Storage'
 components:
+  parameters:
+    AssetId:
+      name: asset_id
+      in: path
+      required: true
+      description: The unique ID of the asset.
+      schema:
+        type: string
   schemas:
-    Storage:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        method:
-          type: string
-          description: The storage method, e.g. S3, GCS, AZURE, FILE, GCP.
-        status:
-          type: string
     File:
       type: object
       properties:
@@ -128,14 +124,18 @@ components:
           type: string
         status:
           type: string
-  parameters:
-    AssetId:
-      name: asset_id
-      in: path
-      required: true
-      description: The unique ID of the asset.
-      schema:
-        type: string
+    Storage:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        method:
+          type: string
+          description: The storage method, e.g. S3, GCS, AZURE, FILE, GCP.
+        status:
+          type: string
   securitySchemes:
     appId:
       type: apiKey

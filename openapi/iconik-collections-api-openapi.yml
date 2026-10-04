@@ -111,13 +111,6 @@ paths:
                     type: integer
 components:
   parameters:
-    CollectionId:
-      name: collection_id
-      in: path
-      required: true
-      description: The unique ID of the collection.
-      schema:
-        type: string
     PerPage:
       name: per_page
       in: query
@@ -134,7 +127,30 @@ components:
       schema:
         type: integer
         default: 1
+    CollectionId:
+      name: collection_id
+      in: path
+      required: true
+      description: The unique ID of the collection.
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: The requested object was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
     CollectionList:
       type: object
       properties:
@@ -148,24 +164,6 @@ components:
           type: integer
         total:
           type: integer
-    CollectionCreate:
-      type: object
-      required:
-      - title
-      properties:
-        title:
-          type: string
-        parent_id:
-          type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
     Collection:
       type: object
       properties:
@@ -178,13 +176,15 @@ components:
         date_created:
           type: string
           format: date-time
-  responses:
-    NotFound:
-      description: The requested object was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    CollectionCreate:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+        parent_id:
+          type: string
   securitySchemes:
     appId:
       type: apiKey

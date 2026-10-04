@@ -52,14 +52,6 @@ paths:
                     type: integer
 components:
   parameters:
-    PerPage:
-      name: per_page
-      in: query
-      required: false
-      description: The number of results per page.
-      schema:
-        type: integer
-        default: 10
     Page:
       name: page
       in: query
@@ -68,6 +60,14 @@ components:
       schema:
         type: integer
         default: 1
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      description: The number of results per page.
+      schema:
+        type: integer
+        default: 10
   schemas:
     SearchRequest:
       type: object

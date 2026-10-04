@@ -116,14 +116,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/MetadataValues'
 components:
+  parameters:
+    AssetId:
+      name: asset_id
+      in: path
+      required: true
+      description: The unique ID of the asset.
+      schema:
+        type: string
   schemas:
-    MetadataValues:
-      type: object
-      properties:
-        metadata_values:
-          type: object
-          additionalProperties: true
-          description: A map of field name to its value object for the view.
     MetadataField:
       type: object
       properties:
@@ -136,14 +137,13 @@ components:
           description: The field data type, e.g. string, text, integer, boolean, date, drop_down.
         required:
           type: boolean
-  parameters:
-    AssetId:
-      name: asset_id
-      in: path
-      required: true
-      description: The unique ID of the asset.
-      schema:
-        type: string
+    MetadataValues:
+      type: object
+      properties:
+        metadata_values:
+          type: object
+          additionalProperties: true
+          description: A map of field name to its value object for the view.
   securitySchemes:
     appId:
       type: apiKey
