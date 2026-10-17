@@ -125,6 +125,13 @@ components:
       schema:
         type: string
   schemas:
+    MetadataValues:
+      type: object
+      properties:
+        metadata_values:
+          type: object
+          additionalProperties: true
+          description: A map of field name to its value object for the view.
     MetadataField:
       type: object
       properties:
@@ -137,13 +144,6 @@ components:
           description: The field data type, e.g. string, text, integer, boolean, date, drop_down.
         required:
           type: boolean
-    MetadataValues:
-      type: object
-      properties:
-        metadata_values:
-          type: object
-          additionalProperties: true
-          description: A map of field name to its value object for the view.
   securitySchemes:
     appId:
       type: apiKey

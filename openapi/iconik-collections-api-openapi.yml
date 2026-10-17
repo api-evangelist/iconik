@@ -110,37 +110,6 @@ paths:
                   total:
                     type: integer
 components:
-  parameters:
-    PerPage:
-      name: per_page
-      in: query
-      required: false
-      description: The number of results per page.
-      schema:
-        type: integer
-        default: 10
-    Page:
-      name: page
-      in: query
-      required: false
-      description: The page number of results to return.
-      schema:
-        type: integer
-        default: 1
-    CollectionId:
-      name: collection_id
-      in: path
-      required: true
-      description: The unique ID of the collection.
-      schema:
-        type: string
-  responses:
-    NotFound:
-      description: The requested object was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -151,19 +120,6 @@ components:
           type: array
           items:
             type: string
-    CollectionList:
-      type: object
-      properties:
-        objects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Collection'
-        page:
-          type: integer
-        pages:
-          type: integer
-        total:
-          type: integer
     Collection:
       type: object
       properties:
@@ -185,6 +141,50 @@ components:
           type: string
         parent_id:
           type: string
+    CollectionList:
+      type: object
+      properties:
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection'
+        page:
+          type: integer
+        pages:
+          type: integer
+        total:
+          type: integer
+  parameters:
+    Page:
+      name: page
+      in: query
+      required: false
+      description: The page number of results to return.
+      schema:
+        type: integer
+        default: 1
+    PerPage:
+      name: per_page
+      in: query
+      required: false
+      description: The number of results per page.
+      schema:
+        type: integer
+        default: 10
+    CollectionId:
+      name: collection_id
+      in: path
+      required: true
+      description: The unique ID of the collection.
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: The requested object was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     appId:
       type: apiKey
