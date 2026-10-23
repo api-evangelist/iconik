@@ -1,0 +1,81 @@
+generated: '2026-10-23'
+method: searched
+checked:
+- adobe-creative-cloud/integrations/adobe-creative-cloud-integration-edges.yml
+- adobe-illustrator/integrations/adobe-illustrator-integration-edges.yml
+- adobe-photoshop/integrations/adobe-photoshop-integration-edges.yml
+- adobe-premiere/integrations/adobe-premiere-integration-edges.yml
+source:
+- adobe-creative-cloud/integrations/adobe-creative-cloud-integration-edges.yml
+- adobe-illustrator/integrations/adobe-illustrator-integration-edges.yml
+- adobe-photoshop/integrations/adobe-photoshop-integration-edges.yml
+- adobe-premiere/integrations/adobe-premiere-integration-edges.yml
+edges:
+- partner_name: Adobe Creative Cloud (own)
+  partner: adobe-creative-cloud
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://exchange.adobe.com/apps/cc/100304/iconik
+  mirror_of: adobe-creative-cloud/integrations/adobe-creative-cloud-integration-edges.yml
+  apps:
+  - iconik
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Adobe Exchange Creative Cloud listing (After Effects, Audition, Illustrator, Photoshop)
+- partner_name: Adobe Illustrator (own)
+  partner: adobe-illustrator
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://exchange.adobe.com/apps/cc/100304/iconik
+  mirror_of: adobe-illustrator/integrations/adobe-illustrator-integration-edges.yml
+  apps:
+  - iconik
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Adobe Exchange Creative Cloud listing (After Effects, Audition, Illustrator, Photoshop)
+- partner_name: Adobe Photoshop (own)
+  partner: adobe-photoshop
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://exchange.adobe.com/apps/cc/100304/iconik
+  mirror_of: adobe-photoshop/integrations/adobe-photoshop-integration-edges.yml
+  apps:
+  - iconik
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Adobe Exchange Creative Cloud listing (After Effects, Audition, Illustrator, Photoshop)
+- partner_name: Adobe Premiere Pro (own)
+  partner: adobe-premiere
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://exchange.adobe.com/apps/cc/100304/iconik
+  mirror_of: adobe-premiere/integrations/adobe-premiere-integration-edges.yml
+  apps:
+  - iconik
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Adobe Exchange Creative Cloud listing (After Effects, Audition, Illustrator, Photoshop)
